@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Post</title>
+</head>
+<body>
+    
+</body>
+<script src="./posts.js"></script>
+<script src="./areas.js"></script>
+<script>
+    let postJson = [];
+    let obj = [];
+    oldJson.forEach((item) => {
+        obj = {
+            province: item.province
+        }
+        let arr = [];
+        let citys = item.citys;
+        for(let i = 0; i< citys.length; i++){
+            arr.push({
+                cname: citys[i],
+                pid: item.posts[i]
+            })
+        }
+        obj.citys = arr;
+        postJson.push(obj)
+    })
+
+    // console.log(postJson)
+    // document.write(JSON.stringify(postJson))
+
+    oldJson.forEach((item) => {
+        newCitys.forEach((ar) => {
+            if(item.province == ar.name){
+                ar.citys.forEach((city) => {
+                    for(let i = 0; i < item.citys.length; i++){
+                        if(item.citys[i] == city.name){
+                            city.post = item.posts[i]
+                        }
+                    }
+                })
+            }
+        })
+    })
+    console.log(newCitys)
+    document.write(JSON.stringify(newCitys))
+
+
+</script>
+</html>
