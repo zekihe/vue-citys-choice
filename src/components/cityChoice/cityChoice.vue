@@ -7,6 +7,7 @@
        name: 'cityChoice',
        data () {
            return {
+               
            }
        },
        components: {},
