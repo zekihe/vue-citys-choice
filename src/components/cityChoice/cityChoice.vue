@@ -13,6 +13,7 @@
        components: {},
        props: {},
        created () {
+           consoel.log(123)
        },
        mounted () {
        },
