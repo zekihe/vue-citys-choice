@@ -12,7 +12,7 @@ export default {
     },
     components: {},
     created() {
-        //aaaaabbbb
+        //aaaaabbß
     }
 }
 </script>
