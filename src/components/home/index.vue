@@ -1,24 +1,27 @@
 <template>
-    <div>
-
+    <div id="app">
+       <cityChoice></cityChoice> 
     </div>
 </template>
 <script>
-   export default {
-       name: 'home',
-       data () {
-           return {
-           }
-       },
-       components: {},
-       props: {},
-       created () {
-       },
-       mounted () {
-       },
-       method: {
-       },
-   }
+    import cityChoice from '../cityChoice/cityChoice.vue';
+    export default {
+        name: 'home',
+        data () {
+            return {
+            }
+        },
+        components: {
+            cityChoice
+        },
+        props: {},
+        created () {
+        },
+        mounted () {
+        },
+        method: {
+        },
+    }
 </script>
 <style scoped>
 /* css */

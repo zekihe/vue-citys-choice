@@ -28,13 +28,20 @@ let config = {
         },
         {
           test: /\.scss$/,
-          use: ['style-loader','css-loader', 'sass-loader']
+          use: [
+            {loader: 'style-loader'},
+            {loader: 'css-loader'},
+            {loader: 'sass-loader'}
+          ]
         },
       ]
     },
     plugins: [
       new VueLoaderPlugin(),
-      new HtmlWebpackPlugin()
+      new HtmlWebpackPlugin({
+          title: 'cityChoice-vue',
+          template: './default-index.ejs',
+      })
     ]
 }
 
