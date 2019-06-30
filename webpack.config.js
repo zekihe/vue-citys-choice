@@ -7,7 +7,7 @@ const merge = require('webpack-merge')
 const isDev = process.env.NODE_ENV == 'production' ? false : true;
 
 let config = {
-    entry: path.join(__dirname,"src/index.js"),
+    entry: path.join(__dirname,"src/main.js"),
     output: {
       path: path.join(__dirname,'dist'),
       filename: 'bunlde.[hash:8].js',
@@ -37,7 +37,7 @@ let config = {
 if(isDev){
   config = merge(config,{
     devServer: {
-      host: '0.0.0.0',
+      host: '127.0.0.1',
       port: '8068',
       open: true,
     },
