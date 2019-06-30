@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        Hello World!打打所
+        <router-view></router-view>
     </div>
 </template>
 
