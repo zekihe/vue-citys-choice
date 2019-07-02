@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+    啊
        <cityChoice></cityChoice> 
     </div>
 </template>
