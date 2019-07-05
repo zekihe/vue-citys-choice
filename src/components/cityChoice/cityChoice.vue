@@ -1,6 +1,6 @@
 <template>
     <div class="city city-wap">
-        <div class="search">
+        <div class="search">aaa
             <input type="text" placeholder="搜索条件">
         </div>
         <div class="city-list">
