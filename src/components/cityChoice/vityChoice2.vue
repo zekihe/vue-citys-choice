@@ -1,7 +1,7 @@
 <template>
     <div>
         <p>{{title}}</p>
-        <div class="city">1
+        <div class="city">
             <input type="text" placeholder="出发城市" @focus="showCityDialog" @blur="hideCityDialog">
             <div class="city-components" v-if="showCity">
                 <ul class="filter-tabar clearfix">
