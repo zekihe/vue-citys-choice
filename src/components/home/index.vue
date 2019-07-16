@@ -1,6 +1,7 @@
 <template>
     <div id="app">
        <cityChoice></cityChoice> 
+       <div></div>
     </div>
 </template>
 <script>
