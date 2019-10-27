@@ -2,25 +2,38 @@
     <div class="city-selector city-wap " v-show="showCity" :class="{'top-in': showCity}">
         <div class="city-title">
             选择城市
-            <div class="btn-close" role="button" aria-label="关闭" @click="showCity = !showCity">✕</div>
+            <div class="btn-close" role="button" aria-label="关闭" @click="close">✕</div>
         </div>
         <div class="search">
             <input type="text" placeholder="搜索条件">
         </div>
+        <!-- 城市列表 -->
         <div class="city-list" ref="cityList">
+            <!-- 热门城市 -->
+            <div :ref="'city-hot'" class="clearfix">
+                <p id="hot">热门</p>
+                <ul>
+                    <li v-for="(item, index) in hotCities" :key="index">{{item.name}}</li>
+                </ul>
+            </div>
+            <!-- 所有城市 -->
             <div :ref="'city-' + item.idx" v-for="(item,index) in cityData.cityList" :key="index" class="clearfix">
                 <p :id="item.idx">{{item.idx}}</p>
                 <ul>
-                    <li v-for="cell in item.cities">{{cell.name}}</li>
+                    <li v-for="(cell, idx) in item.cities" :key="idx">{{cell.name}}</li>
                 </ul>
             </div>
         </div>
+        <!-- 字母筛选表 -->
         <div class="city-index left-in" ref="filterCity">
             <ul>
-                <li class="index-item" :data-index="item" v-for="(item,index) in cityData.alphabet" :key="index">{{item}}</li>
+                <li class="index-item" :data-index="'hot'" >热门</li>
+                <li class="index-item" 
+                    :data-index="item.idx" 
+                    v-for="(item,index) in cityData.cityList" 
+                    :key="index">{{ item.idx }}</li>
             </ul>
         </div>
-        <div class="active-key" v-if="activeKey">{{activeKey}}</div>
     </div>
 </template>
 <script>
@@ -32,9 +45,18 @@
             return {
                 cityData: cityData,
                 dataList: [],
-                activeKey: '',
                 upCityList: '',
                 listEle: null,  //城市列表元素
+                hotCities: [
+                    {name: '北京', pinyin: 'beijing'},
+                    {name: '上海', pinyin: 'shanghai'},
+                    {name: '广州', pinyin: 'guangzhou'},
+                    {name: '西安', pinyin: 'xian'},
+                    {name: '杭州', pinyin: 'zhangzhou'},
+                    {name: '深圳', pinyin: 'shenzhen'},
+                    {name: '苏州', pinyin: 'suzhou'},
+                    {name: '苏州', pinyin: 'suzhou'},
+                ]
             }
        },
        components: {},
@@ -87,6 +109,10 @@
            this.listEle = this.$refs.cityList;
        },
        methods: {
+            close () {
+                this.showCity = false;
+                this.$emit('stateChange', this.showCity)
+            },
             scrollToCity(e) {
                 let self = this;
                 e.preventDefault();
@@ -95,8 +121,15 @@
                     let curTouch = e.touches[0]
                     let ele = document.elementFromPoint(curTouch.pageX, curTouch.pageY);
                     // console.log(ele.dataset)
-                    let anchor = self.$refs['city-' + ele.dataset.index][0];
-                    anchor && (this.listEle.scrollTop = anchor.offsetTop)
+                    let dataIndex = ele.dataset.index;
+                    let current = self.$refs['city-' + ele.dataset.index];
+                    let anchor = null;
+                    if (dataIndex == 'hot') {
+                        anchor = current;
+                    } else {
+                        anchor = current[0];
+                    }
+                    anchor && (this.listEle.scrollTop = anchor.offsetTop);
                 } catch (error) {
                     
                 }

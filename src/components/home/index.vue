@@ -1,7 +1,7 @@
 <template>
     <div id="aaa">
-       <div @click="showCity = true">切换城市</div>
-       <cityChoice :showCity="showCity"></cityChoice> 
+       <div class="home-main" @click="showCity = true">切换城市</div>
+       <cityChoice @stateChange="stateChange" :showCity="showCity" ></cityChoice> 
     </div>
 </template>
 <script>
@@ -22,6 +22,9 @@
         mounted () {
         },
         methods: {
+            stateChange (flag) {
+                this.showCity = flag;
+            }
         },
     }
 </script>
