@@ -1,7 +1,7 @@
 <template>
     <div id="aaa">
-       <div>切换城市</div>
-       <cityChoice></cityChoice> 
+       <div @click="showCity = true">切换城市</div>
+       <cityChoice :showCity="showCity"></cityChoice> 
     </div>
 </template>
 <script>
@@ -13,6 +13,7 @@
         },
         data () {
             return {
+                showCity: false,
             }
         },
         props: {},
