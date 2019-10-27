@@ -8,7 +8,7 @@
 export default {
     name: '',
     data () {
-
+        return {}
     },
     components: {},
     created() {

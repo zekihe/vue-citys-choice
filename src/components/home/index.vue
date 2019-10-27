@@ -1,26 +1,26 @@
 <template>
-    <div id="app">
+    <div id="aaa">
+       <div>切换城市</div>
        <cityChoice></cityChoice> 
-       <div></div>
     </div>
 </template>
 <script>
-    import cityChoice from '../cityChoice/cityChoice.vue';
+    import cityChoice from '../../common/commonCity.vue';
     export default {
         name: 'home',
+        components: {
+            cityChoice
+        },
         data () {
             return {
             }
-        },
-        components: {
-            cityChoice
         },
         props: {},
         created () {
         },
         mounted () {
         },
-        method: {
+        methods: {
         },
     }
 </script>

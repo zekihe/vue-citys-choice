@@ -12,20 +12,21 @@
                 </ul>
             </div>
         </div>
-        <div class="filter left-in">
-            <div v-for="item in cityData.alphabet" :key="item" @click="switchKey(item)">{{item}}</div>
+        <div class="city-index left-in" ref="filterCity">
+            <ul>
+                <li class="index-item" v-for="(item,index) in cityData.alphabet" :key="index">{{item}}</li>
+            </ul>
         </div>
         <div class="active-key" v-if="activeKey">{{activeKey}}</div>
     </div>
 </template>
 <script>
-    import '../../assets/style/index.scss'
+    import '../assets/style/index.scss'
     import cityData from './citys.js'
     export default {
        name: 'cityChoice',
        data () {
             return {
-                title: 'web秀 - VUE开发一个组件——Vue PC城市选择',
                 showCity: false,
                 cityData: cityData,
                 dataList: [],
@@ -70,11 +71,18 @@
             }
        },
        created () {
-           console.log(123)
        },
        mounted () {
+           console.log(this.$refs)
+           this.$refs.filterCity.addEventListener('touchstart', this.scrollToCity);
+           this.$refs.filterCity.addEventListener('touchmove', this.scrollToCity);
        },
-       method: {
+       methods: {
+            scrollToCity(e) {
+                console.log(e)
+                e.preventDefault();
+                e.stopPropagation();
+            },
             switchKey(key){
                 // 当前选中的字母
                 this.activeKey = key;

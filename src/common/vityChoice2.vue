@@ -18,7 +18,7 @@
     </div>
 </template>
 <script>
-    import '../../assets/style/index.scss'
+    import '../assets/style/index.scss'
     export default {
        data () {
            return {
@@ -81,7 +81,7 @@
        },
        mounted () {
        },
-       method: {
+       methods: {
             upCityListKey(index){
                 this.upCityListIndex = index;
                 this.upCityList = this.cityListData[index];
