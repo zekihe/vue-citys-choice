@@ -1,11 +1,11 @@
 <template>
-    <div class="city-selector city-wap " v-show="showCity" :class="{'top-in': showCity}">
+    <div class="city-selector city-wap " v-show="show" :class="{'top-in': show}">
         <div class="city-title">
             选择城市
             <div class="btn-close" role="button" aria-label="关闭" @click="close">✕</div>
         </div>
         <div class="search">
-            <input @input="search" type="text" v-model="searchName" placeholder="搜索条件">
+            <input @input="search" type="text" v-model.trim="searchName" placeholder="搜索条件">
         </div>
         <!-- 城市列表 -->
         <div class="city-list" ref="cityList">
@@ -58,7 +58,7 @@
                     {name: '深圳', pinyin: 'shenzhen'},
                     {name: '苏州', pinyin: 'suzhou'},
                     {name: '苏州', pinyin: 'suzhou'},
-                ]
+                ],
             }
        },
        components: {},
@@ -68,7 +68,11 @@
                default: false,
            }
        },
-       computed: {},
+       computed: {
+           show () {
+               return this.showCity
+           }
+       },
        created () {
        },
        mounted () {
@@ -79,8 +83,7 @@
        },
        methods: {
             close () {
-                this.showCity = false;
-                this.$emit('stateChange', this.currentCity)
+                this.$emit('on-state-change', this.currentCity)
             },
             scrollToCity(e) {
                 let self = this;

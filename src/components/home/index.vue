@@ -8,7 +8,7 @@
                </div>
            </div>
        </div>
-       <cityChoice @stateChange="stateChange" :showCity="showCity" ></cityChoice> 
+       <cityChoice @on-state-change="stateChange" :showCity="showCity" ></cityChoice> 
     </div>
 </template>
 <script>
@@ -32,6 +32,7 @@
         methods: {
             openCity () {
                 this.showCity = true;
+                console.log(123)
             },
             stateChange (item) {
                 this.showCity = false;
