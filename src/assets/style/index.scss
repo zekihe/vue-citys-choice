@@ -5,6 +5,63 @@
     margin: 0;
     padding: 0;
   }
+
+  .arrow-down {
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 3px;
+    width: 8px;
+    height: 4px;
+    position: relative;
+    &:after {
+      content: "";
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid #333;
+      display: block;
+      position: absolute;
+      margin: -1px 0 0 -4px;
+    }
+  }
+
+  .main-head {
+    display: flex;
+    justify-content: center;
+    background-size: 100% 1px;
+    overflow: hidden;
+    background-color: #fff;
+    width: 100%;
+    .city-change {
+      width: 42%;
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+      font-size: 0;
+      height: 3.125rem;
+      height: 13.3vw;
+      line-height: 3.125rem;
+      line-height: 13.3vw;
+      .city-name {    
+        vertical-align: middle;
+        display: inline-block;
+        color: #333;
+        font-weight: 700;
+        font-size: .9375rem;
+        max-width: 4.375rem;
+        max-width: 18.7vw;
+        width: auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+
+
   .city-selector {
     position: fixed;
     z-index: 2000;

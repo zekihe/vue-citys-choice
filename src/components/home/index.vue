@@ -1,6 +1,13 @@
 <template>
     <div id="aaa">
-       <div class="home-main" @click="showCity = true">切换城市</div>
+       <div class="home-main">
+           <div class="main-head">
+               <div class="city-change" @click="openCity">
+                   <div class="city-name">{{cityName}}</div>
+                   <div class="arrow-down"></div>
+               </div>
+           </div>
+       </div>
        <cityChoice @stateChange="stateChange" :showCity="showCity" ></cityChoice> 
     </div>
 </template>
@@ -14,6 +21,7 @@
         data () {
             return {
                 showCity: false,
+                cityName: '深圳',
             }
         },
         props: {},
@@ -22,8 +30,13 @@
         mounted () {
         },
         methods: {
-            stateChange (flag) {
-                this.showCity = flag;
+            openCity () {
+                this.showCity = true;
+            },
+            stateChange (item) {
+                this.showCity = false;
+                console.log(item)
+                this.cityName = item.name;
             }
         },
     }
