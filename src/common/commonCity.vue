@@ -111,16 +111,14 @@
                 this.close();
             },
             search (e) {
-                console.log(this.cityData.cityList)
-                // this.cityData.cityList.forEach(item => {
-                //     item.cities.forEach(cell => {
-                //     console.log(cell)
-                //         if (cell.pinyin.includes(this.searchName)) {
-                //             this.searchData.push(cell)
-                //         }
-                //     })
-                // })
-                this.searchData = this.cityData.cityList.filter(item => item.includes(this.searchName))
+                this.searchData = [];
+                this.cityData.cityList.forEach(item => {
+                    item.cities.forEach(cell => {
+                        if (this.searchName && cell.pinyin.includes(this.searchName)) {
+                            this.searchData.push(cell)
+                        }
+                    })
+                })
                 console.log(this.searchData)
             }
        },
