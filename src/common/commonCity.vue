@@ -110,7 +110,8 @@
                 this.currentCity = item;
                 this.close();
             },
-            search (e) {   
+            search (e) {     
+                console.log(e)
                 this.searchData = [];
                 this.cityData.cityList.forEach(item => {
                     item.cities.forEach(cell => {
