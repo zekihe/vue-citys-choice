@@ -111,7 +111,6 @@
                 this.close();
             },
             search (e) {     
-                console.log(e)
                 this.searchData = [];
                 this.cityData.cityList.forEach(item => {
                     item.cities.forEach(cell => {
