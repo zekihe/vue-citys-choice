@@ -103,7 +103,7 @@
                     }
                     anchor && (this.listEle.scrollTop = anchor.offsetTop);
                 } catch (error) {
-                    
+                    console.log(error)
                 }
             },
             selectCity (item) {
